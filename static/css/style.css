@@ -1,0 +1,95 @@
+@import url("https://fonts.googleapis.com/css2?family=Anta&display=swap");
+
+:root {
+    --primary-color: #de7922;
+    --secondary-color: #374646;
+    --background-color: #1f2828;
+    --text-color: #de7922;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    display: grid;
+    justify-items: center;
+    font-style: normal;
+}
+
+.input {
+    background-color: var(--secondary-color);
+    display: grid;
+    justify-items: left;
+    text-align: left;
+    border-radius: 30px;
+    margin: 50px;
+    padding: 20px;
+    width: 80%;
+    border: none;
+}
+
+.input input {
+    background-color: var(--text-color);
+    border-radius: 20px;
+    border: none;
+    padding: 5px;
+    margin: 5px;
+    width: 30px;
+}
+
+.input label {
+    position: relative;
+    padding-left: 10px; /* Space for the custom checkbox */
+    cursor: pointer;
+    font-size: 22px;
+    user-select: none;
+}
+
+#generate,
+#download,
+#reset {
+    width: 200px;
+    align-items: center;
+}
+
+.input input:hover {
+    cursor: pointer;
+}
+
+.response {
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    background-color: var(--background-color);
+    border-radius: 20px;
+    width: 90%;
+    margin: 20px;
+}
+
+.input input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 4px solid var(--primary-color); /* Default border color */
+    outline: none;
+    cursor: pointer;
+}
+
+/* Styling the custom checkbox when checked */
+.input input[type="checkbox"]:checked {
+    background-color: #f5f7f5; /* Change the background color when checked */
+    border-color: var(
+        --primary-color
+    ); /* Change the border color when checked */
+}
+
+/* Optional: Increase the size of the checkbox */
+/* You can adjust this as needed */
+.input input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+}

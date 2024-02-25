@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Blue's Password Generator</title>
+        <link
+            rel="stylesheet"
+            type="text/css"
+            href="{{ url_for('static',filename='css/style.css') }}"
+        />
+        <link
+            rel="icon"
+            type="image/x-icon"
+            href="{{ url_for('static', filename='img/favicon.ico') }}"
+        />
+    </head>
+    <body>
+        <div class="input">
+            <form action="/" method="get">
+                <label for="minPassLength">Minimum Password Length:</label>
+                <input
+                    type="number"
+                    id="minPassLength"
+                    name="minPassLength"
+                    min="8"
+                    max="20"
+                    value="8"
+                /><br />
+
+                <label for="animals">Use Animals Word List:</label>
+                <input
+                    type="checkbox"
+                    id="animals"
+                    name="animals"
+                    checked
+                /><br />
+
+                <label for="instruments">Use Instruments Word List:</label>
+                <input
+                    type="checkbox"
+                    id="instruments"
+                    name="instruments"
+                    checked
+                /><br />
+
+                <label for="colours">Use Colours Word List:</label>
+                <input
+                    type="checkbox"
+                    id="colours"
+                    name="colours"
+                    checked
+                /><br />
+
+                <label for="shapes">Use Shapes Word List:</label>
+                <input
+                    type="checkbox"
+                    id="shapes"
+                    name="shapes"
+                    checked
+                /><br />
+
+                <label for="food">Use Food Word List:</label>
+                <input type="checkbox" id="food" name="food" checked /><br />
+
+                <label for="sports">Use Sports Word List:</label>
+                <input
+                    type="checkbox"
+                    id="sports"
+                    name="sports"
+                    checked
+                /><br />
+
+                <label for="transport">Use Transport Word List:</label>
+                <input
+                    type="checkbox"
+                    id="transport"
+                    name="transport"
+                    checked
+                /><br />
+
+                <label for="symbols"
+                    >Add a Symbol to the End of the Password:</label
+                >
+                <input
+                    type="checkbox"
+                    id="symbols"
+                    name="symbols"
+                    checked
+                /><br />
+
+                <label for="capitals">Capitalise Each Word:</label>
+                <input
+                    type="checkbox"
+                    id="capitals"
+                    name="capitals"
+                    checked
+                /><br />
+
+                <label for="randCapitals"
+                    >Randomly Capitalise Some of the Letters in the
+                    Password:</label
+                >
+                <input
+                    type="checkbox"
+                    id="randCapitals"
+                    name="randCapitals"
+                /><br />
+
+                <label for="lettersForNumbers"
+                    >Set the Chance for Letters to be Replaced with
+                    Numbers:</label
+                >
+                <input
+                    type="number"
+                    id="lettersForNumbers"
+                    name="lettersForNumbers"
+                    min="0"
+                    max="100"
+                    value="0"
+                /><br />
+
+                <label for="numOfPasswords"
+                    >Set the Number of Passwords Generated:</label
+                >
+                <input
+                    type="number"
+                    id="numOfPasswords"
+                    name="numOfPasswords"
+                    min="1"
+                    value="5"
+                /><br />
+
+                <label for="maxLength"
+                    >Set the Maximum Length of a Password:</label
+                >
+                <input
+                    type="number"
+                    id="maxLength"
+                    name="maxLength"
+                    min="8"
+                    max="20"
+                    value="20"
+                /><br />
+                <input id="generate" type="submit" value="Generate" />
+            </form>
+            <form action="/" class="btn btn-primary">
+                <input id="reset" type="submit" value="Reset" />
+            </form>
+            <div class="response">
+                <p>{{ response }}</p>
+                <form action="/download_passwords" class="btn btn-primary">
+                    <input
+                        id="download"
+                        type="submit"
+                        value="Download Passwords"
+                    />
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
