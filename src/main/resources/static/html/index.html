@@ -8,10 +8,39 @@
             type="text/css"
             href="/css/styles.css"
         />
+        <script>
+            window.onload = function() {
+                document.getElementById('passwordForm').addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    let formData = new FormData(this);
+                    let object = {};
+                    formData.forEach(function (value, key) {
+                        object[key] = value;
+                    });
+                    console.log(object)
+
+                    fetch('/getPasswords', {
+                        method: 'POST',
+                        //headers: {
+                        //    'Content-Type': 'application/json',
+                        //},
+                        body: JSON.stringify(object),
+                    })
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(JSON.parse(data))
+                        })
+                        .catch((error) => {
+                            console.error('Error:', error);
+                        });
+                });
+            }
+        </script>
     </head>
     <body>
         <div class="input">
-            <form action="/" method="get">
+            <form action="/" method="get" id="passwordForm">
                 <label for="minPassLength">Minimum Password Length:</label>
                 <input
                     type="number"
@@ -142,7 +171,7 @@
                 <input id="reset" type="submit" value="Reset" />
             </form>
             <div class="response">
-                <p>{{ response }}</p>
+                <p></p>
                 <form action="/download_passwords" class="btn btn-primary">
                     <input
                         id="download"

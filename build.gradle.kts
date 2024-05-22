@@ -29,6 +29,7 @@ dependencies {
     implementation("io.ktor:ktor-client-core:$ktor_version")
     implementation("io.ktor:ktor-client-apache:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
+    implementation("com.google.code.gson:gson:2.11.0")
     //testImplementation("io.ktor:ktor-server-tests-jvm")
     //testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
