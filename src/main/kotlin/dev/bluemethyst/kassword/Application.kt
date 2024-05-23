@@ -1,8 +1,8 @@
-package dev.bluemethyst.web
+package dev.bluemethyst.kassword
 
 import com.google.gson.Gson
-import dev.bluemethyst.web.common.loadConfig
-import dev.bluemethyst.web.plugins.configureRouting
+import dev.bluemethyst.kassword.common.loadConfig
+import dev.bluemethyst.kassword.plugins.configureRouting
 import io.ktor.server.application.*
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty

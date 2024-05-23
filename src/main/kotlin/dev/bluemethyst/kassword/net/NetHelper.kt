@@ -1,4 +1,4 @@
-package dev.bluemethyst.web.net
+package dev.bluemethyst.kassword.net
 
 import java.net.URI
 import java.net.http.HttpClient

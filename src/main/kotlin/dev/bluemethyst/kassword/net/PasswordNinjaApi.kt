@@ -1,6 +1,6 @@
-package dev.bluemethyst.web.net
+package dev.bluemethyst.kassword.net
 
-import dev.bluemethyst.web.Kassword
+import dev.bluemethyst.kassword.Kassword
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.request.*

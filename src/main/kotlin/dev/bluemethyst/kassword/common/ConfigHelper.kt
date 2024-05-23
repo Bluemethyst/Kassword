@@ -1,6 +1,6 @@
-package dev.bluemethyst.web.common
+package dev.bluemethyst.kassword.common
 
-import dev.bluemethyst.web.Kassword.GSON
+import dev.bluemethyst.kassword.Kassword.GSON
 import java.nio.file.Files
 import java.nio.file.Paths
 

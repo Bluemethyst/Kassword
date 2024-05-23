@@ -1,8 +1,8 @@
-package dev.bluemethyst.web.plugins
+package dev.bluemethyst.kassword.plugins
 
-import dev.bluemethyst.web.Kassword
-import dev.bluemethyst.web.net.PasswordParameters
-import dev.bluemethyst.web.net.getPasswords
+import dev.bluemethyst.kassword.Kassword
+import dev.bluemethyst.kassword.net.PasswordParameters
+import dev.bluemethyst.kassword.net.getPasswords
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.http.content.*
