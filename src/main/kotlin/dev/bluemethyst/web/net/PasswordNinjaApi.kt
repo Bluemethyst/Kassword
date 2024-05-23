@@ -6,11 +6,7 @@ import io.ktor.client.call.*
 import io.ktor.client.request.*
 import io.ktor.client.statement.*
 
-data class PasswordResponse(
-    val passwords: List<String>
-)
-
-data class PasswordParameters(
+data class BooleanPasswordParameters(  //there has to be a better way to do this
     val minPassLength: Int = 8,
     val animals: Boolean = true,
     val instruments: Boolean = true,
@@ -28,8 +24,47 @@ data class PasswordParameters(
     val maxLength: Int = 20
 )
 
-suspend fun getPasswords(params: PasswordParameters): String {
+data class PasswordParameters(
+    val minPassLength: Int = 8,
+    val animals: String = "true",
+    val instruments: String = "true",
+    val colours: String = "true",
+    val shapes: String = "true",
+    val food: String = "true",
+    val sports: String = "true",
+    val transport: String = "true",
+    val symbols: String = "true",
+    val capitals: String = "true",
+    val numAtEnd: Int = 2,
+    val randCapitals: String = "false",
+    val lettersForNumbers: Int = 0,
+    val numOfPasswords: Int = 1,
+    val maxLength: Int = 20
+) {
+    fun toBooleanParameters(): BooleanPasswordParameters {
+        return BooleanPasswordParameters(
+            minPassLength,
+            animals = animals == "on",
+            instruments = instruments == "on",
+            colours = colours == "on",
+            shapes = shapes == "on",
+            food = food == "on",
+            sports = sports == "on",
+            transport = transport == "on",
+            symbols = symbols == "on",
+            capitals = capitals == "on",
+            numAtEnd,
+            randCapitals = randCapitals == "on",
+            lettersForNumbers,
+            numOfPasswords,
+            maxLength
+        )
+    }
+}
+
+suspend fun getPasswords(params: BooleanPasswordParameters): String {
     val client = HttpClient()
+    println(params)
     val response: HttpResponse = client.get(Kassword.CONFIG.baseApiUrl) {
         url(Kassword.CONFIG.baseApiUrl)
         params.run {
@@ -50,6 +85,7 @@ suspend fun getPasswords(params: PasswordParameters): String {
             parameter("maxLength", maxLength)
         }
     }
+    //println(response.call.toString())
     val responseContent = response.body<String>()
     client.close()
     return Kassword.GSON.toJson(responseContent)

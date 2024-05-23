@@ -1,20 +1,20 @@
-@import url("https://fonts.googleapis.com/css2?family=Anta&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 :root {
-    --primary-color: #de7922;
-    --secondary-color: #374646;
-    --background-color: #1f2828;
-    --text-color: #de7922;
+    --secondary-color: #1d1d1d;
+    --background-color: #111111;
+    --text-color: #bb86fc;
 }
 
 body {
     background-color: var(--background-color);
     color: var(--text-color);
-    font-family: "Anta", sans-serif;
+    font-family: "Roboto Mono", monospace;
     font-weight: 400;
     display: grid;
     justify-items: center;
     font-style: normal;
+    filter: drop-shadow(0 0 10px var(--text-color));
 }
 
 .input {
@@ -31,6 +31,7 @@ body {
 
 .input input {
     background-color: var(--text-color);
+    transition: transform 0.5s ease-in-out;
     border-radius: 20px;
     border: none;
     padding: 5px;
@@ -40,31 +41,50 @@ body {
 
 .input label {
     position: relative;
-    padding-left: 10px; /* Space for the custom checkbox */
+    padding-left: 10px;
     cursor: pointer;
     font-size: 22px;
     user-select: none;
 }
 
 #generate,
-#download,
-#reset {
+#reset,
+#download {
+    font-family: "Roboto Mono", monospace;
+    font-weight: 400;
     width: 200px;
     align-items: center;
+    transition: transform 0.5s ease-in-out;
 }
 
+#download {
+    margin: 20px;
+}
 .input input:hover {
     cursor: pointer;
+    transform: scale(1.07);
+}
+.response input:hover {
+    cursor: pointer;
+    transform: scale(1.07);
 }
 
 .response {
     display: grid;
     justify-items: center;
     text-align: center;
+    align-items: center;
     background-color: var(--background-color);
     border-radius: 20px;
-    width: 90%;
-    margin: 20px;
+    width: 100%;
+    margin-top: 20px;
 }
 
-
+.navbar {
+    position: fixed;
+    width: 99%;
+    display: flex;
+    justify-content: flex-end;
+    color: var(--text-color);
+    padding: 10px;
+}
