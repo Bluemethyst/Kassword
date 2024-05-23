@@ -11,7 +11,7 @@ group = "dev.bluemethyst.web"
 version = "0.0.1"
 
 application {
-    mainClass.set("dev.bluemethyst.web.ApplicationKt")
+    mainClass.set("dev.bluemethyst.kassword.ApplicationKt")
 
     val isDevelopment: Boolean = project.ext.has("development")
     applicationDefaultJvmArgs = listOf("-Dio.ktor.development=$isDevelopment")

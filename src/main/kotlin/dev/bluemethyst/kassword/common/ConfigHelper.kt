@@ -5,7 +5,8 @@ import java.nio.file.Files
 import java.nio.file.Paths
 
 data class KasswordConfig(
-    val baseApiUrl: String
+    val baseApiUrl: String,
+    val port: Int
 )
 
 fun loadConfig(): KasswordConfig {
@@ -17,7 +18,7 @@ fun loadConfig(): KasswordConfig {
         return configJson
     } catch (e: Exception) {
         println("Failed to load config.json, using default config")
-        val defaultConfig = KasswordConfig(baseApiUrl = "https://password.ninja/api/password")
+        val defaultConfig = KasswordConfig(baseApiUrl = "https://password.ninja/api/password", port = 3000)
         val defaultConfigJson = GSON.toJson(defaultConfig)
         Files.writeString(path, defaultConfigJson)
         return defaultConfig

@@ -1,6 +1,7 @@
 package dev.bluemethyst.kassword
 
 import com.google.gson.Gson
+import dev.bluemethyst.kassword.Kassword.CONFIG
 import dev.bluemethyst.kassword.common.loadConfig
 import dev.bluemethyst.kassword.plugins.configureRouting
 import io.ktor.server.application.*
@@ -15,8 +16,7 @@ object Kassword {
 fun main() {
     embeddedServer(
         Netty,
-        port = 8080,
+        port = CONFIG.port,
         module = Application::configureRouting
     ).start(wait = true)
-
 }
