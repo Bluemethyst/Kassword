@@ -5,6 +5,7 @@ val logback_version: String by project
 plugins {
     kotlin("jvm") version "1.9.24"
     id("io.ktor.plugin") version "2.3.11"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "dev.bluemethyst.web"
@@ -22,16 +23,12 @@ repositories {
 }
 
 dependencies {
-    //implementation("io.ktor:ktor-server-core-jvm")
-    //implementation("io.ktor:ktor-server-netty-jvm")
     implementation("io.ktor:ktor-server-core:$ktor_version")
     implementation("io.ktor:ktor-server-netty:$ktor_version")
     implementation("io.ktor:ktor-client-core:$ktor_version")
     implementation("io.ktor:ktor-client-apache:$ktor_version")
     implementation("ch.qos.logback:logback-classic:$logback_version")
     implementation("com.google.code.gson:gson:2.11.0")
-    //testImplementation("io.ktor:ktor-server-tests-jvm")
-    //testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
 
 ktor {
@@ -44,6 +41,8 @@ sourceSets {
     main {
         resources {
             srcDir("src/main/resources")
+            include("**/*")
+            include("static/html/*")
         }
     }
 }
