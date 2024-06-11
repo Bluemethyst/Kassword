@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "dev.bluemethyst.web"
-version = "0.0.1"
+version = "0.0.2"
 
 application {
     mainClass.set("dev.bluemethyst.kassword.ApplicationKt")
@@ -32,4 +32,18 @@ dependencies {
     implementation("com.google.code.gson:gson:2.11.0")
     //testImplementation("io.ktor:ktor-server-tests-jvm")
     //testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
+}
+
+ktor {
+    fatJar {
+        archiveFileName.set("fat.jar")
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir("src/main/resources")
+        }
+    }
 }
