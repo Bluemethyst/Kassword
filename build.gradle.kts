@@ -43,7 +43,10 @@ ktor {
 sourceSets {
     main {
         resources {
-            srcDir("src/main/resources")
+            srcDir("resources")
+        }
+        kotlin {
+            srcDir("kotlin")
         }
     }
 }

@@ -19,11 +19,7 @@ data class PasswordResponse(
 
 fun Application.configureRouting() {
     routing {
-        staticResources("/", "static")
-        get("/") {
-            val htmlContent = File("src/main/resources/static/html", "index.html").readText()
-            call.respondText(htmlContent, ContentType.Text.Html)
-        }
+        staticResources("/", "static", index = "html/index.html")
         post("/getPasswords") {
             val passwordParamsJson = call.receive<String>()
             val passwordParams = Kassword.GSON.fromJson(passwordParamsJson, PasswordParameters::class.java).toBooleanParameters()
